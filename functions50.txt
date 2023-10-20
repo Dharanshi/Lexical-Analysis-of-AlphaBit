@@ -1,0 +1,352 @@
+
+
+public class MyFunctions {
+
+    // 1. Greet: Greets the user.
+    public static void greet() {
+        System.out.println("Hello! Welcome.");
+    }
+
+    // 2. Ask Name: Asks the user for their name.
+    public static String askName() {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("Please enter your name: ");
+        String name = scanner.nextLine();
+        return name;
+    }
+
+    // 3. Convert Kilometers to Miles
+    public static double convertToMiles(double km) {
+        return km * 0.621371;
+    }
+
+    // 4. Ask Age: Asks the user for their age.
+    public static int askAge() {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("How old are you? ");
+        int age = scanner.nextInt();
+        return age;
+    }
+
+    // 5. Repeat: Repeats a block of code a specified number of times.
+    public static void repeat(int times) {
+        for (int i = 0; i < times; i++) {
+            // Put the code to be repeated here.
+        }
+    }
+
+    // 6. While: Repeats a block of code while a condition is true.
+    public static void whileLoop(boolean condition) {
+        while (condition) {
+            // Put the code to be repeated here.
+        }
+    }
+
+    // 7. If: Executes a block of code if a condition is true.
+    public static void ifCondition(boolean condition) {
+        if (condition) {
+            // Put the code to be executed here.
+        }
+    }
+
+    // 8. Else: Executes a block of code if the previous "if" condition was false.
+    public static void elseCondition(boolean condition) {
+        if (!condition) {
+            // Put the code to be executed here.
+        }
+    }
+
+    // 9. Check: Checks a value against multiple cases.
+    public static void check(int value) {
+        switch (value) {
+            // Define cases and code to execute for each case.
+        }
+    }
+
+    // 10. Add: Adds two numbers.
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    // 11. Subtract: Subtracts two numbers.
+    public static int subtract(int a, int b) {
+        return a - b;
+    }
+
+    // 12. Multiply: Multiplies two numbers.
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // 13. Divide: Divides two numbers.
+    public static double divide(double a, double b) {
+        if (b == 0) {
+            System.out.println("Error: Division by zero.");
+            return Double.NaN;
+        }
+        return a / b;
+    }
+
+    // 14. Find Remainder: Finds the remainder when dividing two numbers.
+    public static int findRemainder(int a, int b) {
+        return a % b;
+    }
+
+    // 15. Are Same: Checks if two values are the same.
+    public static boolean areSame(Object a, Object b) {
+        return a.equals(b);
+    }
+
+    // 16. Are Different: Checks if two values are different.
+    public static boolean areDifferent(Object a, Object b) {
+        return !a.equals(b);
+    }
+
+    // 17. Is Bigger: Checks if one number is bigger than another.
+    public static boolean isBigger(int a, int b) {
+        return a > b;
+    }
+
+    // 18. Is Smaller: Checks if one number is smaller than another.
+    public static boolean isSmaller(int a, int b) {
+        return a < b;
+    }
+
+    // 19. Whisper Message: Converts text to lowercase.
+    public static String whisperMessage(String message) {
+        return message.toLowerCase();
+    }
+
+    // 20. Shout Message: Converts text to uppercase.
+    public static String shoutMessage(String message) {
+        return message.toUpperCase();
+    }
+
+    // 21. Current Date: Displays the current date.
+    public static void currentDate() {
+        java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date date = new java.util.Date();
+        System.out.println("Current date: " + dateFormat.format(date));
+    }
+
+    // 22. Current Time: Displays the current time.
+    public static void currentTime() {
+        java.text.SimpleDateFormat timeFormat = new java.text.SimpleDateFormat("HH:mm:ss");
+        java.util.Date date = new java.util.Date();
+        System.out.println("Current time: " + timeFormat.format(date));
+    }
+
+    // 23. Days Until Birthday: Calculates days until the user's next birthday.
+    public static int daysUntilBirthday(int birthMonth, int birthDay) {
+        java.util.Calendar today = java.util.Calendar.getInstance();
+        java.util.Calendar birthday = java.util.Calendar.getInstance();
+        birthday.set(today.get(java.util.Calendar.YEAR), birthMonth - 1, birthDay);
+
+        if (today.after(birthday)) {
+            birthday.add(java.util.Calendar.YEAR, 1);
+        }
+
+        long milliseconds = birthday.getTimeInMillis() - today.getTimeInMillis();
+        int days = (int) (milliseconds / (24 * 60 * 60 * 1000));
+        return days;
+    }
+
+    // 24. Find Max: Finds the maximum value in an array.
+    public static int findMax(int[] arr) {
+        int max = arr[0];
+        for (int value : arr) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
+
+    // 25. Find Min: Finds the minimum value in an array.
+    public static int findMin(int[] arr) {
+        int min = arr[0];
+        for (int value : arr) {
+            if (value < min) {
+                min = value;
+            }
+        }
+        return min;
+    }
+
+    // 26. Sum Array: Calculates the sum of values in an array.
+    public static int sumArray(int[] arr) {
+        int sum = 0;
+        for (int value : arr) {
+            sum += value;
+        }
+        return sum;
+    }
+
+    // 27. Average Array: Calculates the average of values in an array.
+    public static double averageArray(int[] arr) {
+        if (arr.length == 0) {
+            return 0;
+        }
+        int sum = sumArray(arr);
+        return (double) sum / arr.length;
+    }
+
+    // 28. Sort Array: Sorts an array in ascending order.
+    public static void sortArray(int[] arr) {
+        java.util.Arrays.sort(arr);
+    }
+
+    // 29. List Files: Lists all files in the current directory.
+    public static void listFiles() {
+        java.io.File currentDirectory = new java.io.File(".");
+        java.io.File[] files = currentDirectory.listFiles();
+
+        for (java.io.File file : files) {
+            if (file.isFile()) {
+                System.out.println("File: " + file.getName());
+            } else if (file.isDirectory()) {
+                System.out.println("Directory: " + file.getName());
+            }
+        }
+    }
+
+    // 30. Read File: Reads and displays the content of a file.
+    public static void readFile(String filename) {
+        try {
+            java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(filename));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (java.io.IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    // 31. Write to File: Writes content to a file.
+    public static void writeToFile(String filename, String content) {
+        try {
+            java.io.PrintWriter writer = new java.io.PrintWriter(filename);
+            writer.print(content);
+            writer.close();
+            System.out.println("Content written to the file.");
+        } catch (java.io.IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    // 32. Generate Random Number: Generates a random number between 1 and n.
+    public static int generateRandomNumber(int n) {
+        java.util.Random rand = new java.util.Random();
+        return rand.nextInt(n) + 1;
+    }
+
+    // 33. Convert to Binary: Converts a number to binary.
+    public static String convertToBinary(int n) {
+        return Integer.toBinaryString(n);
+    }
+
+    // 34. Convert to Hexadecimal: Converts a number to hexadecimal.
+    public static String convertToHexadecimal(int n) {
+        return Integer.toHexString(n);
+    }
+
+    // 35. Calculate Area of Circle: Calculates the area of a circle.
+    public static double calculateAreaOfCircle(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // 36. Calculate Perimeter of Rectangle: Calculates the perimeter of a rectangle.
+    public static double calculatePerimeterOfRectangle(double length, double width) {
+        return 2 * (length + width);
+    }
+
+    // 37. Calculate Area of Triangle: Calculates the area of a triangle.
+    public static double calculateAreaOfTriangle(double base, double height) {
+        return 0.5 * base * height;
+    }
+
+    // 38. Is Leap Year: Checks if a year is a leap year.
+    public static boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+
+    // 39. Count Vowels: Counts the number of vowels in a string.
+    public static int countVowels(String s) {
+        s = s.toLowerCase();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // 40. Count Words: Counts the number of words in a string.
+    public static int countWords(String s) {
+        String[] words = s.split("\\s+");
+        return words.length;
+    }
+
+    // 41. Convert Celsius to Fahrenheit: Converts Celsius to Fahrenheit.
+    public static float convertCelsiusToFahrenheit(float c) {
+        return (c * 9.0f / 5.0f) + 32;
+    }
+
+    // 42. Convert Fahrenheit to Celsius: Converts Fahrenheit to Celsius.
+    public static float convertFahrenheitToCelsius(float f) {
+        return (5.0f / 9.0f) * (f - 32);
+    }
+
+    // 43. Double Number: Doubles the given number.
+    public static int doubleNumber(int n) {
+        return n * 2;
+    }
+
+    // 44. Half Number: Halves the given number.
+    public static int halfNumber(int n) {
+        return n / 2;
+    }
+
+    // 45. Is Multiple: Checks if a is a multiple of b.
+    public static boolean isMultiple(int a, int b) {
+        return a % b == 0;
+    }
+
+    // 46. Swap: Swaps the values of a and b.
+    public static void swap(int a, int b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // 47. Round to Next Whole: Rounds up the number to the nearest whole number.
+    public static int roundToNextWhole(double n) {
+        return (int) Math.ceil(n);
+    }
+
+    // 48. Round to Previous Whole: Rounds down the number to the nearest whole number.
+    public static int roundToPreviousWhole(double n) {
+        return (int) Math.floor(n);
+    }
+
+    // 49. Count Up To: Prints numbers from 1 to n.
+    public static void countUpTo(int n) {
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // 50. Count Down From: Prints numbers from n down to 1.
+    public static void countDownFrom(int n) {
+        for (int i = n; i >= 1; i--) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+  }
+}
