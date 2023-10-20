@@ -20,8 +20,10 @@ public class SimpleLexer {
         String[] tokens = line.split("[ \t\n(){}\\[\\].,;]+");
 
         for (String token : tokens) {
-            if (isKeyword(token)) {
-                System.out.println("Keyword: " + token);
+            String alphaBitKeyword = replaceAlphaBitKeywords(token);
+
+            if (isAlphaBitKeyword(alphaBitKeyword)) {
+                System.out.println("AlphaBit Keyword: " + alphaBitKeyword);
             } else if (isIdentifier(token)) {
                 System.out.println("Identifier: " + token);
             } else if (isConstant(token)) {
@@ -32,16 +34,21 @@ public class SimpleLexer {
         }
     }
 
-    private static boolean isKeyword(String token) {
-        String[] keywords = {
-            "break", "case", "char", "const", "continue", "default", "do",
-            "double", "else", "enum", "extern", "float", "for", "goto", "if",
-            "int", "long", "register", "return", "short", "signed", "sizeof",
-            "static", "struct", "switch", "typedef", "union", "unsigned", "void",
-            "while"
+    private static boolean isAlphaBitKeyword(String token) {
+        String[] alphaBitKeywords = {
+            "greet", "askName", "convertToMiles", "askAge", "repeat", "until", "check", "otherwise",
+        "event", "add", "subtract", "multiply", "divide", "findRemainder", "areSame", "areDifferent",
+        "isBigger", "isSmaller", "whisperMessage", "shoutMessage", "currentDate", "currentTime",
+        "daysUntilBirthday", "findMax", "findMin", "sumArray", "averageArray", "sortArray",
+        "listFiles", "readFile", "writeToFile", "generateRandomNumber", "convertToBinary",
+        "convertToHexadecimal", "calculateAreaOfCircle", "calculatePerimeterOfRectangle",
+        "calculateAreaOfTriangle", "isLeapYear", "countVowels", "countWords", "convertCelsiusToFahrenheit",
+        "convertFahrenheitToCelsius", "doubleNumber", "halfNumber", "isMultiple", "swap",
+        "roundToNextWhole", "roundToPreviousWhole", "countUpTo", "countDownFrom","share", "group", "constant", "nothing", "whole", "decimal", "choice", "word",
+            "giveback", "check", "otherwise", "repeat", "until", "show", "get", "fresh", "Input", "readnext"
         };
 
-        for (String keyword : keywords) {
+        for (String keyword : alphaBitKeywords) {
             if (keyword.equals(token)) {
                 return true;
             }
@@ -60,6 +67,50 @@ public class SimpleLexer {
 
     private static boolean isOperator(String token) {
         return token.matches("[-+*/%<>=&|^!~.,;{}\\[\\]()#]+");
+    }
+
+    private static String replaceAlphaBitKeywords(String token) {
+        // Replace Java keywords with AlphaBit keywords
+        switch (token) {
+            case "public":
+                return "share";
+            case "class":
+                return "group";
+            case "static":
+                return "constant";
+            case "void":
+                return "nothing";
+            case "int":
+                return "whole";
+            case "double":
+                return "decimal";
+            case "boolean":
+                return "choice";
+            case "String":
+                return "word";
+            case "return":
+                return "giveback";
+            case "if":
+                return "check";
+            case "else":
+                return "otherwise";
+            case "for":
+                return "repeat";
+            case "while":
+                return "until";
+            case "System.out.println":
+                return "show";
+            case "import":
+                return "get";
+            case "new":
+                return "fresh";
+            case "Scanner":
+                return "Input";
+            case "next":
+                return "readnext";
+            default:
+                return token;
+        }
     }
 }
 
